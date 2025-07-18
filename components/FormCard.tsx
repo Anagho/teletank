@@ -42,7 +42,7 @@ const FormCard = (props: FormCardProps) => {
   return (
     <LinearGradient colors={colors.gradients.surface}
       style={formStyles.section}>
-       <Text style={formStyles.subtitle}>{selectedTank.type}</Text>
+       <Text style={formStyles.subtitle}>{selectedTank.type} - factor({selectedTank.tankFactor})</Text>
        <Text style={formStyles.sectionTitle}>{selectedTank.name}</Text>
 
       <Text style={formStyles.label}>Dip Level (cm)</Text>
