@@ -11,15 +11,13 @@ const TabsLayout = () => {
         tabBarInactiveTintColor: colors.textMuted,
         tabBarStyle: {
           backgroundColor: colors.surface,
-        //   borderTopWidth: 1,
-        //   borderTopColor: colors.border,
-          height: 70,
+          height: 90,
           paddingBottom: 30,
           paddingTop: 10,
         },
-        tabBarLabelStyle: {
-          fontSize: 12,
-          fontWeight: "600",
+        tabBarLabelStyle: { 
+          fontSize: 12,  
+          fontWeight: "600", 
         },
         headerShown: false,
       }}

@@ -1,10 +1,11 @@
 import useTheme, { ThemeProvider } from "@/hooks/useTheme";
 import { Stack } from "expo-router";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 function InnerLayout() {
   const { colors } = useTheme();
 
-  return (
+  return ( 
     <Stack>
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
       <Stack.Screen
@@ -22,8 +23,10 @@ function InnerLayout() {
 
 export default function RootLayout() {
   return (
-    <ThemeProvider>
-      <InnerLayout />
-    </ThemeProvider>
+    <SafeAreaProvider>
+      <ThemeProvider>
+        <InnerLayout />
+      </ThemeProvider>
+    </SafeAreaProvider>
   );
 }
