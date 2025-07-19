@@ -11,7 +11,7 @@ import { useLocalSearchParams } from "expo-router";
 import { useState, useEffect, useRef } from "react";
 import { tanks, Tank } from "@/constants/tankData";
 import useTheme from "@/hooks/useTheme";
-import { createBaseStyles } from "@/assets/styles/base.styles";
+import { createHomeStyles } from "@/assets/styles/home.styles";
 import { createFormStyles } from "@/assets/styles/form.styles";
 import { LinearGradient } from "expo-linear-gradient";
 
@@ -28,7 +28,7 @@ const TankFormScreen = () => {
   const { id } = useLocalSearchParams<{ id: string }>();
 
   const { colors } = useTheme();
-  const baseStyles = createBaseStyles(colors);
+  const homeStyles = createHomeStyles(colors);
   const formStyles = createFormStyles(colors);
 
   const [selectedTank, setSelectedTank] = useState<Tank | null>(null);
@@ -44,7 +44,6 @@ const TankFormScreen = () => {
 
   const [result, setResult] = useState<ResultData | null>(null);
 
-  const scrollViewRef = useRef<ScrollView>(null);
   const resultCardRef = useRef<View>(null);
 
   useEffect(() => {
@@ -120,7 +119,7 @@ const TankFormScreen = () => {
   return (
     <LinearGradient
       colors={colors.gradients.background}
-      style={baseStyles.container}
+      style={homeStyles.container}
     >
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -128,7 +127,7 @@ const TankFormScreen = () => {
       >
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <ScrollView
-            style={baseStyles.scrollView}
+            style={homeStyles.scrollView}
             contentContainerStyle={formStyles.content}
             showsVerticalScrollIndicator={false}
             keyboardShouldPersistTaps="handled"

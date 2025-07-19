@@ -1,54 +1,69 @@
-import { View, Text, StyleSheet, Alert } from "react-native";
-import TankCard from "./TankCard";
-import { tanks, Tank } from "@/constants/tankData";
+import {
+  View,
+  Text,
+  Pressable,
+} from "react-native";
+import { Tank, tanks } from "@/constants/tankData";
+import { Ionicons, Feather } from "@expo/vector-icons";
 import useTheme from "@/hooks/useTheme";
-import { createBaseStyles } from "@/assets/styles/base.styles";
 import { createHomeStyles } from "@/assets/styles/home.styles";
 import { router } from "expo-router";
 
 const TankSelection = () => {
-  const { colors } = useTheme();
-  const baseStyles = createBaseStyles(colors);
+  const { colors, isDarkMode } = useTheme();
   const homeStyles = createHomeStyles(colors);
 
-  const cylindricalTanks = Object.values(tanks).filter(
-    (tank) => tank.type === "cylindrical"
-  ) as Tank[];
+  const cylindricalTanks = tanks.filter((tank) => tank.type === "cylindrical");
+  const rectangularTanks = tanks.filter((tank) => tank.type === "rectangular");
 
-  const rectangularTanks = Object.values(tanks).filter(
-    (tank) => tank.type === "rectangular"
-  ) as Tank[];
-
-  const handlePress = (tank: Tank) => {
+  const handleTankPress = (tank: Tank) =>
     router.push({ pathname: "./form", params: { id: tank.id } });
 
+  const TankCard = ({ item }: { item: Tank }) => {
+    const iconColor = isDarkMode ? colors.textMuted : colors.text;
+    const textColor = isDarkMode ? colors.textMuted : colors.text;
+
+    return (
+      <Pressable
+        style={homeStyles.card}
+        onPress={() => handleTankPress(item)}
+      >
+        {item.type === "rectangular" ? (
+          <Ionicons name="cube-outline" size={40} color={iconColor} />
+        ) : (
+          <Feather name="database" size={40} color={iconColor} />
+        )}
+        <Text style={[homeStyles.label, { color: textColor }]}>
+          {item.name}
+        </Text>
+      </Pressable>
+    );
   };
 
+  const renderSectionHeader = ({ section }: { section: { title: string } }) => (
+    <Text style={homeStyles.sectionHeader}>{section.title}</Text>
+  );
+
   return (
-    <View style={baseStyles.container}>
+    <View style={homeStyles.container}>
       {/* CYLINDRICAL TANKS SECTION */}
       <View style={homeStyles.tankSection}>
         <Text style={homeStyles.sectionHeader}>Cylindrical Tanks</Text>
         <View style={homeStyles.grid}>
           {cylindricalTanks.map((tank) => (
-            <TankCard
-              key={tank.id}
-              tank={tank}
-              onPress={() => handlePress(tank)}
-            />
+            <TankCard key={tank.id} item={tank} />
           ))}
         </View>
       </View>
 
-      {/* RECTANGULAR TANKS SECTION */}
+       {/* RECTANGULAR TANKS SECTION */}
       <View style={homeStyles.tankSection}>
         <Text style={homeStyles.sectionHeader}>Rectangular Tanks</Text>
         <View style={homeStyles.grid}>
           {rectangularTanks.map((tank) => (
             <TankCard
               key={tank.id}
-              tank={tank}
-              onPress={() => handlePress(tank)}
+              item={tank}
             />
           ))}
         </View>

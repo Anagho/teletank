@@ -9,6 +9,14 @@ export const createHomeStyles = (colors: ColorScheme) => {
     safeArea: {
       flex: 1,
     },
+    scrollView: {
+      flex: 1,
+    },
+    content: {
+      paddingHorizontal: 20,
+      gap: 20,
+      paddingBottom: 120
+    },
     loadingContainer: {
       flex: 1,
       justifyContent: "center",
@@ -22,7 +30,8 @@ export const createHomeStyles = (colors: ColorScheme) => {
     },
     header: {
       paddingHorizontal: 24,
-      paddingVertical: 32,
+      paddingVertical: 24,
+      marginTop: 20,
       paddingBottom: 10,
       borderBottomWidth: 1,
       borderBottomColor: colors.border,
@@ -60,9 +69,8 @@ export const createHomeStyles = (colors: ColorScheme) => {
     tankSection: {
       backgroundColor: colors.surface,
       paddingHorizontal: 16,
-      marginTop: 8,
-      marginBottom: 8,
-      paddingBottom: 10,
+      marginTop: 12,
+      paddingBottom: 20,
     },
     sectionHeader: {
       fontSize: 24,
@@ -71,11 +79,23 @@ export const createHomeStyles = (colors: ColorScheme) => {
       marginBottom: 20,
       color: colors.text,
     },
+     card: {
+      width: "30%",
+      padding: 4,
+      alignItems: "center",
+      marginBottom: 16,
+    },
+    label: {
+      fontSize: 12,
+      textAlign: "center",
+      marginTop: 16,
+    },
     grid: {
       flexDirection: "row",
       flexWrap: "wrap",
       justifyContent: "space-between",
       gap: 4,
+      paddingBottom: "auto"
     },
   });
 
