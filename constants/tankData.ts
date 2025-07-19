@@ -13,7 +13,7 @@ export interface Tank {
 export const tanks: Tank[] = [
   {
     id: "cyl-1",
-    name: "5000L Horizontal White Tank",
+    name: "5000L White Horizontal Tank",
     type: "cylindrical",
     length: 285,
     diameter: 150,
@@ -21,7 +21,7 @@ export const tanks: Tank[] = [
   },
   {
     id: "cyl-2",
-    name: "2000L Vertical White Tank",
+    name: "2000L White Vertical Tank",
     type: "cylindrical",
     length: 177,
     diameter: 120,
@@ -30,7 +30,7 @@ export const tanks: Tank[] = [
   },
   {
     id: "cyl-3",
-    name: "2000L Horizontal White Tank",
+    name: "2000L White Horizontal Tank",
     type: "cylindrical",
     length: 150,
     diameter: 130,
@@ -39,7 +39,7 @@ export const tanks: Tank[] = [
   },
   {
     id: "cyl-4",
-    name: "5000L White Tank 2",
+    name: "5000L White Horizontal Tank 2",
     type: "cylindrical",
     length: 307,
     diameter: 140,
