@@ -3,7 +3,6 @@ import { createSettingsStyles } from "@/assets/styles/settings.style";
 import useTheme from "@/hooks/useTheme";
 import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
-import { useState } from "react";
 import { Switch, Text, View } from "react-native";
 
 const Preferences = () => {
