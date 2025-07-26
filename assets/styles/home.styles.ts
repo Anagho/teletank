@@ -86,7 +86,7 @@ export const createHomeStyles = (colors: ColorScheme) => {
       marginBottom: 16,
     },
     label: {
-      fontSize: 12,
+      fontSize: 14,
       textAlign: "center",
       marginTop: 16,
     },

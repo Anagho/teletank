@@ -1,35 +1,43 @@
 {
   "expo": {
-    "name": "teletank",
+    "name": "TeleTank",
     "slug": "teletank",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/tank.png",
     "scheme": "teletank",
+    "deepLinking": true,
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "buildNumber": "1.0.0",
+      "supportsTablet": true,
+      "splash": {
+        "image": "./assets/images/logo.png",
+        "resizeMode": "contain",
+        "backgroundColor": "#ffffff"
+      }
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/tank.png",
+        "foregroundImage": "./assets/images/logo.png",
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
+      "versionCode": 1,
       "package": "com.anagho.teletank"
     },
     "web": {
       "bundler": "metro",
       "output": "static",
-      "favicon": "./assets/images/tank.png"
+      "favicon": "./assets/images/logo.png"
     },
     "plugins": [
       "expo-router",
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/tank.png",
+          "image": "./assets/images/logo.png",
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#f8fafc"
@@ -44,6 +52,9 @@
       "eas": {
         "projectId": "77cfff86-1561-4ac6-951a-e22cdfd584a2"
       }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
     }
   }
 }

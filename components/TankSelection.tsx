@@ -1,8 +1,4 @@
-import {
-  View,
-  Text,
-  Pressable,
-} from "react-native";
+import { View, Text, Pressable } from "react-native";
 import { Tank, tanks } from "@/constants/tankData";
 import { Ionicons, Feather } from "@expo/vector-icons";
 import useTheme from "@/hooks/useTheme";
@@ -24,14 +20,20 @@ const TankSelection = () => {
     const textColor = isDarkMode ? colors.textMuted : colors.text;
 
     return (
-      <Pressable
-        style={homeStyles.card}
-        onPress={() => handleTankPress(item)}
-      >
+      <Pressable style={homeStyles.card} onPress={() => handleTankPress(item)}>
         {item.type === "rectangular" ? (
-          <Ionicons name="cube-outline" size={40} color={iconColor} />
+          <Ionicons name="cube-outline" size={60} color={iconColor} />
         ) : (
-          <Feather name="database" size={40} color={iconColor} />
+          <Feather
+            name="database"
+            size={60}
+            color={iconColor}
+            style={
+              item.orientation === "horizontal"
+                ? { transform: [{ rotate: "90deg" }] }
+                : { transform: [{ rotate: "0deg" }] }
+            }
+          />
         )}
         <Text style={[homeStyles.label, { color: textColor }]}>
           {item.name}
@@ -56,15 +58,12 @@ const TankSelection = () => {
         </View>
       </View>
 
-       {/* RECTANGULAR TANKS SECTION */}
+      {/* RECTANGULAR TANKS SECTION */}
       <View style={homeStyles.tankSection}>
         <Text style={homeStyles.sectionHeader}>Rectangular Tanks</Text>
         <View style={homeStyles.grid}>
           {rectangularTanks.map((tank) => (
-            <TankCard
-              key={tank.id}
-              item={tank}
-            />
+            <TankCard key={tank.id} item={tank} />
           ))}
         </View>
       </View>
